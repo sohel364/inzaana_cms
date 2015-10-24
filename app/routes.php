@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Blade::setContentTags('<%', '%>'); 		// for variables and all things Blade
+Blade::setEscapedContentTags('<%%', '%%>'); 	// for escaped data
+Route::get('/', 'HomeController@getLanddingpage');
+Route::controller('auth', 'AuthController');
+Route::controller('users', 'UsersController');
+Route::controller('censors', 'CensorController');
+Route::controller('masters', 'MasterController');
+Route::controller('home', 'HomeController');
+
+
+?>
